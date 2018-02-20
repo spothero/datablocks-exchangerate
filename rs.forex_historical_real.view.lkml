@@ -1,5 +1,6 @@
-view: bq_forex_historical_real {
+view: rs_forex_historical_real {
   derived_table: {
+    distribution_style: all
     sql: select x.day
 , (case when x.AUD_USD is null then
     (case when lag(x.AUD_USD, 1) over (order by x.day) is null then
@@ -99,7 +100,7 @@ from
         forex.USD_CAD  AS USD_CAD,
         forex.USD_CHF  AS USD_CHF,
         forex.USD_JPY  AS USD_JPY
-      FROM `looker-datablocks.exchangerate.forex`  AS forex
+      FROM exchangerate.forex AS forex
       Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
       Union All
       SELECT
@@ -117,7 +118,7 @@ from
         forex_real.CAD *(1/forex_real.USD) AS USD_CAD,
         forex_real.CHF *(1/forex_real.USD) AS USD_CHF,
         forex_real.JPY *(1/forex_real.USD) AS USD_JPY
-      FROM `looker-datablocks.exchangerate.forex_real`  AS forex_real
+      FROM exchangerate.forex_real AS forex_real
       Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
 ) as forex
     on forex.forex_exchange_date = calendar_day.day) as x

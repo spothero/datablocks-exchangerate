@@ -1,3 +1,3 @@
-connection: "bq-looker-datablocks"
+connection: "redshift_test"
 
-include: "bq.explore"
+include: "rs.explore"
