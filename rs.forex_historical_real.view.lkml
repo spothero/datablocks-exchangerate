@@ -41,7 +41,7 @@ view: rs_forex_historical_real {
   dimension_group: forex_exchange {
     type: time
     timeframes: [date, week, month, year]
-    sql: ${TABLE}.exchange_date ;;
+    sql: ${TABLE}.forex_exchange_date ;;
   }
 
   dimension: aud_usd {
