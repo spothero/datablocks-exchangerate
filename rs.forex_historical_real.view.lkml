@@ -1,5 +1,6 @@
 view: rs_forex_historical_real {
   derived_table: {
+    sql_trigger_value: select count(*) from exchangerate.forex_real ;;
     distribution_style: all
     sql: SELECT
         cast(forex.exchange_date as timestamp) AS forex_exchange_date,
@@ -35,7 +36,6 @@ view: rs_forex_historical_real {
         forex_real.JPY *(1/forex_real.USD) AS USD_JPY
       FROM exchangerate.forex_real  AS forex_real
 ;;
-    datagroup_trigger: default
   }
 
   dimension_group: forex_exchange {
