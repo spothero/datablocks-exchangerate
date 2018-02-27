@@ -239,7 +239,7 @@ view: rs_forex_historical_real {
     label: "USD/CAD"
     description: "1 US dollar = X Canadian dollars"
     value_format_name: decimal_4
-    type:  max
+    type:  average
     sql: ${usd_cad} ;;
   }
 
